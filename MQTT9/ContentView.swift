@@ -7,13 +7,25 @@
 
 import SwiftUI
 
+
+
+
 struct ContentView: View {
+    let mqttClient = MQTTClient()
+    
+    let topic = "topic/powerglow"
+    
     var body: some View {
         VStack {
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            Text("MQTT9!")
+            Button(action: {
+                mqttClient.connect()
+            }) {
+                Text("Connect")
+            }
         }
         .padding()
     }
@@ -24,3 +36,5 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
+
